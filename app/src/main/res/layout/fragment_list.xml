@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/list_fragment"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/gallery"
+  android:padding="@dimen/small">
+
+  <TextView
+    android:id="@+id/title"
+    style="@style/Text.Medium"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/small"
+    android:text="@string/title"
+    android:textAlignment="center" />
+
+  <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/list_notes"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@id/title"
+    tools:listitem="@layout/item_note" />
+</RelativeLayout>

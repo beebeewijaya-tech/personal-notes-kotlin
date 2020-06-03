@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:layout_marginBottom="@dimen/tiny"
+  android:layout_marginHorizontal="5dp"
+  app:cardElevation="3dp">
+
+  <RelativeLayout
+    android:id="@+id/list_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/small">
+
+    <TextView
+      android:id="@+id/title"
+      style="@style/Text"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="@dimen/tiny"
+      android:fontFamily="@font/noto_bold"
+      android:textAlignment="center"
+      tools:text="@string/title" />
+
+    <TextView
+      android:id="@+id/description"
+      style="@style/Text.Small"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/title"
+      android:layout_marginBottom="@dimen/small"
+      android:ellipsize="end"
+      android:maxLines="3"
+      android:textAlignment="center"
+      tools:text="@tools:sample/lorem/random" />
+  </RelativeLayout>
+</androidx.cardview.widget.CardView>
