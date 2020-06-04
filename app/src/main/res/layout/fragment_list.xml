@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.beebee.notes.view.custom_view.list.ListContainer xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:id="@+id/list_fragment"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   android:background="@color/gallery"
-  android:padding="@dimen/small">
+  android:paddingHorizontal="@dimen/small"
+  android:paddingTop="@dimen/small">
 
   <TextView
     android:id="@+id/title"
@@ -22,4 +24,15 @@
     android:layout_height="match_parent"
     android:layout_below="@id/title"
     tools:listitem="@layout/item_note" />
-</RelativeLayout>
+
+  <com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/create_notes"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentEnd="true"
+    android:layout_margin="@dimen/small"
+    app:backgroundTint="@color/fair_pink"
+    app:srcCompat="@drawable/ic_create_white"
+    app:tint="@color/gray" />
+</com.beebee.notes.view.custom_view.list.ListContainer>
