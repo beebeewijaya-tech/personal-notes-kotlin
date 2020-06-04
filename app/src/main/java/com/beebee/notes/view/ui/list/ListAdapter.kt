@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.beebee.notes.R
 import com.beebee.notes.model.pojo.notes.Notes
+import com.beebee.notes.view.custom_view.list.ListIemContainer
 import kotlinx.android.synthetic.main.item_note.view.*
 
 class ListAdapter(
@@ -14,8 +15,7 @@ class ListAdapter(
 ): RecyclerView.Adapter<ListAdapter.ViewHolder>() {
 	class ViewHolder(val view: View): RecyclerView.ViewHolder(view) {
 		fun bind(note: Notes) {
-			view.title.text = note.title
-			view.description.text = note.description
+			(view as ListIemContainer).initView(note)
 		}
 	}
 
