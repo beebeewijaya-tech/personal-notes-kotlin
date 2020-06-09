@@ -17,6 +17,10 @@ class ListViewModel: ViewModel() {
 
 	init {
 		Toothpick.inject(this, BaseApplicationModule.scope)
-		this._notesLiveData.postValue(model.getFakeNotes())
+		loadData()
+	}
+
+	fun loadData() {
+		_notesLiveData.postValue(model.getListNotes())
 	}
 }

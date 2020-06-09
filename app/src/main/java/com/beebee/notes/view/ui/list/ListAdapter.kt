@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.beebee.notes.R
 import com.beebee.notes.model.pojo.notes.Notes
 import com.beebee.notes.view.custom_view.list.ListIemContainer
-import kotlinx.android.synthetic.main.item_note.view.*
 
 class ListAdapter(
 		val notesList: MutableList<Notes> = mutableListOf()

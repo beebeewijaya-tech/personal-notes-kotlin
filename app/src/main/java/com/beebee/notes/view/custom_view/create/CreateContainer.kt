@@ -1,36 +1,29 @@
-package com.beebee.notes.view.custom_view.detail
+package com.beebee.notes.view.custom_view.create
 
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.RelativeLayout
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.beebee.notes.model.entities.notes.Notes
 import com.beebee.notes.model.room.notes.RoomNotes
+import kotlinx.android.synthetic.main.input_notes.*
 import kotlinx.android.synthetic.main.input_notes.view.*
 
-class DetailContainer @JvmOverloads constructor(
+class CreateContainer @JvmOverloads constructor(
 	context: Context,
 	attrs: AttributeSet? = null,
 	defStyleAttr: Int = 0
 ) : RelativeLayout(context, attrs, defStyleAttr) {
-	fun initView(note: Notes, notesModel: RoomNotes) {
-		renderContent(note, notesModel)
+	fun initView(notesModel: RoomNotes) {
+		save_notes.setOnClickListener { saveNotes(notesModel) }
 	}
 
-	private fun renderContent(note: Notes, notesModel: RoomNotes) {
-		input_title.setText(note.title)
-		input_body.setText(note.description)
-
-
-		save_notes.setOnClickListener { saveNote(note, notesModel) }
-	}
-
-	private fun saveNote(note: Notes, notesModel: RoomNotes) {
+	private fun saveNotes(notesModel: RoomNotes) {
 		val title = input_title.text.toString()
 		val body = input_body.text.toString()
 
 		val notes = Notes(
-			uuid = note.uuid,
 			title = title,
 			description = body
 		)

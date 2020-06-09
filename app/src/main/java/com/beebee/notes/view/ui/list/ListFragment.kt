@@ -29,12 +29,16 @@ class ListFragment : Fragment() {
 		}
 	}
 
-
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
 		renderContent()
 		observeViewModel()
+	}
+
+	override fun onResume() {
+		super.onResume()
+		viewModel.loadData()
 	}
 
 	private fun renderContent() {

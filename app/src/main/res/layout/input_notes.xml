@@ -1,20 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android">
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
   <EditText
     android:id="@+id/input_title"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@android:color/transparent"
-    android:maxLines="1"
-    android:hint="Enter Title..."/>
+    android:hint="Enter Title..."
+    android:maxLines="1" />
 
   <EditText
     android:id="@+id/input_body"
-    android:layout_below="@id/input_title"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="top|left"
+    android:layout_below="@id/input_title"
     android:layout_marginTop="@dimen/small"
     android:background="@android:color/transparent"
-    android:hint="Enter Body..."/>
+    android:gravity="top|left"
+    android:hint="Enter Body..." />
+
+  <com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/save_notes"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentEnd="true"
+    android:layout_margin="@dimen/small"
+    app:backgroundTint="@color/fair_pink"
+    app:srcCompat="@drawable/ic_save_black_24dp"
+    app:tint="@color/gray" />
 </merge>

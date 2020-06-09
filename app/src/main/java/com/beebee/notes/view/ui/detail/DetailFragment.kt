@@ -7,8 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.beebee.notes.R
-import com.beebee.notes.model.pojo.notes.Notes
+import com.beebee.notes.model.entities.notes.Notes
+import com.beebee.notes.model.room.notes.RoomNotes
+import com.beebee.notes.util.base.BaseApplicationModule
 import com.beebee.notes.view.custom_view.detail.DetailContainer
+import toothpick.Toothpick
+import javax.inject.Inject
 
 /**
  * A simple [Fragment] subclass.
@@ -16,6 +20,15 @@ import com.beebee.notes.view.custom_view.detail.DetailContainer
 class DetailFragment : Fragment() {
 	private val args: DetailFragmentArgs by navArgs()
 	private lateinit var contentView: DetailContainer
+
+	@Inject
+	lateinit var modelNotes: RoomNotes
+
+	override fun onCreate(savedInstanceState: Bundle?) {
+		super.onCreate(savedInstanceState)
+
+		Toothpick.inject(this, BaseApplicationModule.scope)
+	}
 
 	override fun onCreateView(
 		inflater: LayoutInflater, container: ViewGroup?,
@@ -30,10 +43,15 @@ class DetailFragment : Fragment() {
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
-		renderContent(args.note)
+		val notes = Notes(
+			uuid = args.note.uuid,
+			title = args.note.title,
+			description = args.note.description
+		)
+		renderContent(notes)
 	}
 
 	private fun renderContent(note: Notes) {
-		contentView.initView(note)
+		contentView.initView(note, modelNotes)
 	}
 }
